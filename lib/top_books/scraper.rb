@@ -16,9 +16,8 @@ class Scraper
     
     title = get_page(page).css(".product-shelf-title")
       
-      title.collect do |book|
-          @@title << book.text
-      end 
+    title.each.with_index {|book ,index|puts "#{index+=1}:#{book.text.strip}"}
+      
   end   
     
 
