@@ -18,6 +18,12 @@ class Books
     input = gets.strip 
     @input = input 
   end
+  
+  def new_books
+    @scraped.collect do |book|
+      book = Books.new
+    end 
+  end 
 
   def match 
     if @input = booklist[0]
