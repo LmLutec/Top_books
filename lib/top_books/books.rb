@@ -1,22 +1,17 @@
 require 'pry'
 class Books 
-  attr_accessor :author, :title 
+  attr_accessor :scraped, :title 
   
-   @@authors = []
-   @@titles = [] 
+   @@booklist = [] 
   
-  # def author 
-  #   @author = author 
-    
-  # end
-  
-  def title 
-    @title = title   
-  end 
-  
-  def book 
-        
+  def initialize(title) 
+    @title = title 
+    @@booklist << @title 
   end
+  
+  def booklist 
+    @booklist   
+  end 
 
 
 end 
