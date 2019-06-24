@@ -1,13 +1,19 @@
 require 'pry'
 class Scraper 
-  attr_reader :title, :author 
   
-  def get_page(site)
-    site = "https://www.barnesandnoble.com/b/books/_/N-1vZ29Z8q8"
-    page = Nokogiri::HTML(open(site))
+site = "https://www.barnesandnoble.com/b/new-releases/_/N-1oyg"
+page = Nokogiri::HTML(open(site))
+@@scraped =[]
+  
+  
+  def get_page(site, page)
+     titles = page.css(".product-shelf-title a").children
+    # writers = page.css(".product-shelf-author a").children
+    # puts "#{titles[1]} by #{writers[1]}"
+    @@scraped << titles 
   end 
   
-  def scraper 
+  #def scraper 
     # author = get_page(page).css(".product-shelf-author")
      
      
@@ -15,10 +21,9 @@ class Scraper
     #         @@author << writer.text
     #   end 
     
-    title = get_page(page).css(".product-shelf-title")
-    #binding.pry 
+ 
       
-    title.each.with_index {|book ,index|puts "#{index+=1}:#{book.text.strip}"}
+    #title.each.with_index {|book ,index|puts "#{index+=1}:#{book.text.strip}"}
       
   end   
     
@@ -26,4 +31,3 @@ class Scraper
   
   
 end
-Scraper.new.scraper  
