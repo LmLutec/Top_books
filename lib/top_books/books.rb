@@ -13,5 +13,13 @@ class Books
     @booklist   
   end 
 
+  def get_input(input)
+    puts "Select the Title number to view more about that New Release:" 
+    @input = input 
+  end
 
+  def match 
+    if @input = booklist[0]
+    end 
+  end 
 end 
