@@ -1,3 +1,4 @@
+require 'pry'
 class Scraper 
   attr_reader :title, :author 
   
@@ -15,6 +16,7 @@ class Scraper
     #   end 
     
     title = get_page(page).css(".product-shelf-title")
+    #binding.pry 
       
     title.each.with_index {|book ,index|puts "#{index+=1}:#{book.text.strip}"}
       
@@ -23,4 +25,5 @@ class Scraper
 
   
   
-end 
+end
+Scraper.new.scraper  
