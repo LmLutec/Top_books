@@ -15,6 +15,7 @@ class Books
 
   def get_input(input)
     puts "Select the Title number to view more about that New Release:" 
+    input = gets.strip 
     @input = input 
   end
 
