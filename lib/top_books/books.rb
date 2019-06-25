@@ -29,6 +29,6 @@ class Books
   end 
 
   def match 
-    puts booklist[@new_input]
+    puts @booklist[@new_input]
   end 
 end 
