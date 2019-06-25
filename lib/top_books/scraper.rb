@@ -1,7 +1,6 @@
 require 'pry'
 require_relative 'books.rb'
 class Scraper 
-  @@scraped = []
 
   
   def get_page
@@ -13,8 +12,9 @@ class Scraper
      titles = page.css(".product-shelf-title a").children
     # writers = page.css(".product-shelf-author a").children
     # puts "#{titles[1]} by #{writers[1]}"
-    @@scraped << titles 
-    binding.pry 
+      titles.collect do |book|
+        book = Books.new 
+      end 
   end 
   
   #def scraper 
