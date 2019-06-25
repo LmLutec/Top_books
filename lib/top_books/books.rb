@@ -19,7 +19,7 @@ class Books
     puts "Select the Title number to view more about that New Release:" 
     input = gets.strip
     new_input = input+=1 
-    @new_input = input 
+    @new_input = new_input 
   end
   
   def new_books
