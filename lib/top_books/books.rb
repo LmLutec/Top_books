@@ -11,7 +11,7 @@ class Books
   
   def booklist 
     @booklist.each_with_index do |book,index|
-      puts "#{index}:#{book}"
+      puts "#{index + 1}:#{book}"
       end   
   end 
 
