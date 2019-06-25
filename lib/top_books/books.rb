@@ -17,8 +17,9 @@ class Books
 
   def get_input(input)
     puts "Select the Title number to view more about that New Release:" 
-    input = gets.strip 
-    @input = input 
+    input = gets.strip
+    new_input = input+=1 
+    @new_input = input 
   end
   
   def new_books
@@ -28,7 +29,7 @@ class Books
   end 
 
   def match 
-    if @input = booklist[0]
+    if @new_input = booklist[0]
     end 
   end 
 end 
