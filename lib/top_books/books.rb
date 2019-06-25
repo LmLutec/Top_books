@@ -29,7 +29,6 @@ class Books
   end 
 
   def match 
-    if @new_input = booklist[0]
-    end 
+    puts booklist[new_input]
   end 
 end 
