@@ -9,7 +9,7 @@ class Books
     @@booklist << @title 
   end
   
-  def new_books
+  def new_book
     binding.pry 
     @scraped.collect do |book|
       book = Books.new
