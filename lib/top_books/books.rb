@@ -10,7 +10,9 @@ class Books
   end
   
   def booklist 
-    @booklist   
+    @booklist.each_with_index do |book,index|
+      puts "#{index}:#{book}"
+      end   
   end 
 
   def get_input(input)
