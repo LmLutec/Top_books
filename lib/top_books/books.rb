@@ -10,6 +10,7 @@ class Books
   end
   
   def new_books
+    binding.pry 
     @scraped.collect do |book|
       book = Books.new
     end 

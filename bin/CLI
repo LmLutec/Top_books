@@ -1,1 +1,4 @@
 #!/usr/bin/env ruby
+require_relative '../lib/top_books/books.rb'
+
+Books.new.new_book
