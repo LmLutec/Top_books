@@ -1,12 +1,11 @@
 require 'pry'
 class Books 
-  attr_accessor :scraped, :title 
+  attr_accessor :title 
   
    @@booklist = [] 
   
-  def initialize(title) 
-    @title = title 
-    @@booklist << @title 
+  def initialize
+    @@booklist << self
   end
   
   def new_book
