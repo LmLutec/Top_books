@@ -9,6 +9,12 @@ class Books
     @@booklist << @title 
   end
   
+  def new_books
+    @scraped.collect do |book|
+      book = Books.new
+    end 
+  end
+  
   def booklist 
     @booklist.each_with_index do |book,index|
       puts "#{index + 1}:#{book}"
@@ -22,11 +28,6 @@ class Books
     @new_input = new_input 
   end
   
-  def new_books
-    @scraped.collect do |book|
-      book = Books.new
-    end 
-  end 
 
   def match 
     puts @booklist[@new_input]
