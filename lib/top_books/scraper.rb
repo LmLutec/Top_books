@@ -3,13 +3,17 @@ require_relative 'books.rb'
 class Scraper 
   
   
-  def get_site 
-     site = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/new-releases/_/N-1oyg"))
-  end 
+   def get_site 
+     site = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/top-books-of-the-month/_/N-2luc"))
+  end
   
   def get_books
-     new_site = get_site
-     site.css(".product-shelf-title a").children
+     site = get_site 
+        new_site = site.css(".product-shelf-title a")
+
+     new_site.select do |node|
+          puts node.children
+      end 
   end 
   
   def create_book_list
