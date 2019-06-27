@@ -1,16 +1,23 @@
 require 'pry'
 require_relative 'books.rb'
 class Scraper 
-  attr_accessor :all 
+  attr_reader :site 
+  attr_writer :all 
+  
+  
+  # def initialize
+  #     @site = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/top-books-of-the-month/_/N-2luc"))
+  #     @site = site 
+  # end 
   
    def get_site 
-     site = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/top-books-of-the-month/_/N-2luc"))
+     @site = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/top-books-of-the-month/_/N-2luc"))
      doc = ".product-shelf-title a"
      booklist = site.css(doc).collect.with_index {|page,index|
          "#{index + 1}:#{page.text}"}
 
-     @booklist.select do |book|
-          puts book
+     @@booklist.select do |book|
+          
           @@all << book 
       end  
   
