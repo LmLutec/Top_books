@@ -1,7 +1,7 @@
 require 'pry'
 require_relative 'books.rb'
 class Scraper 
-  
+  attr_accessor :all 
   
    def get_site 
      site = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/top-books-of-the-month/_/N-2luc"))
@@ -9,8 +9,9 @@ class Scraper
      booklist = site.css(doc).collect.with_index {|page,index|
          "#{index + 1}:#{page.text}"}
 
-     booklist.select do |book|
+     @booklist.select do |book|
           puts book
+          @@all << book 
       end  
   
   #def scraper 
