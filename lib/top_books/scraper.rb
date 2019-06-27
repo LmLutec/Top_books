@@ -5,24 +5,13 @@ class Scraper
   
    def get_site 
      site = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/top-books-of-the-month/_/N-2luc"))
-  end
-  
-  def get_books
-     site = get_site 
-        new_site = site.css(".product-shelf-title a")
+     doc = ".product-shelf-title a"
+     booklist = site.css(doc).collect.with_index {|page,index|
+         "#{index + 1}:#{page.text}"}
 
-     new_site.select do |node|
-          puts node.children
-      end 
-  end 
-  
-  def create_book_list
-    binding.pry 
-    titles.collect do |book|
-        book = Books.new 
-        book.title = new_site.children
-      end 
-  end 
+     booklist.select do |book|
+          puts book
+      end  
   
   #def scraper 
     # author = get_page(page).css(".product-shelf-author")
