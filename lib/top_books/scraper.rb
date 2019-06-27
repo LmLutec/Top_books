@@ -39,7 +39,7 @@ end
         book.title = titles 
       end 
   end 
-  class Scraper 
+end 
   
   
   # def get_site 
@@ -74,4 +74,4 @@ end
     #title.each.with_index {|book ,index|puts "#{index+=1}:#{book.text.strip}"}
       # writers = page.css(".product-shelf-author a").children
     # puts "#{titles[1]} by #{writers[1]}"
-end   
+ 
