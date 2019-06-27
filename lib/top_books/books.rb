@@ -1,15 +1,12 @@
 require 'pry'
-require_relative 'scraper.rb'
 
-class Books < Scraper 
-  attr_accessor :all, :title, :booklist   
+class Books 
+  attr_accessor :title   
   
    @@all = [] 
   
   def initialize
-    @title = title 
-    Scraper.new.get_site  
-  binding.pry 
+    @@all << self 
   end
   
   def all 
