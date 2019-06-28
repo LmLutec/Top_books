@@ -9,8 +9,9 @@ class Books
     @@all << self 
   end
   
-  def all 
+  def self.all 
     @@all 
+    binding.pry 
   end 
 end 
   # def new_book
