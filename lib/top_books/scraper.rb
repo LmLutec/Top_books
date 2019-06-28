@@ -1,52 +1,36 @@
 require 'pry'
+require 'nokogiri'
 require_relative 'books.rb'
+
 class Scraper 
-  attr_reader :site 
-  attr_writer :all 
-  
-  
-  # def initialize
-  #     @site = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/top-books-of-the-month/_/N-2luc"))
-  #     @site = site 
-  # end 
   
    def get_site 
-     @site = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/top-books-of-the-month/_/N-2luc"))
+      Nokogiri::HTML(open("https://www.barnesandnoble.com/b/top-books-of-the-month/_/N-2luc"))
+   end 
+   
+   def grab_title 
      doc = ".product-shelf-title a"
-     booklist = site.css(doc).collect.with_index {|page,index|
-         "#{index + 1}:#{page.text}"}
-
-     @@booklist.select do |book|
-          
-          @@all << book 
-      end  
-  
-  #def scraper 
-    # author = get_page(page).css(".product-shelf-author")
+     self.get_site.css(doc)
+   end 
+   
+   def create_book_list
+     self.grab_title.each do |doc|
+       book = Books.new 
+       book.title = doc.text 
+     end 
      
-     
-    #   author.collect do |writer|
-    #         @@author << writer.text
-    #   end 
-    # titles.each_with_index do |book,index|
-    #     book = Books.new 
-    #     book.title = titles 
-    #   end    
- 
-      #@@all << "#{index + 1}:#{book}" 
-    #title.each.with_index {|book ,index|puts "#{index+=1}:#{book.text.strip}"}
-      # writers = page.css(".product-shelf-author a").children
-    # puts "#{titles[1]} by #{writers[1]}"
-end   
-  
-  def create_book_list
-    binding.pry 
-    titles.collect do |book|
-        book = Books.new 
-        book.title = titles 
-      end 
+    end 
   end 
-end 
+    # .collect.with_index {|page,index|
+    #     "#{index + 1}:#{page.text}"}
+         
+    # booklist = site.css(doc).collect.with_index {|page,index|
+    #     "#{index + 1}:#{page.text}"}
+
+    # @@booklist.select do |book|
+          
+    #       @@all << book 
+    #   end  
   
   
   # def get_site 
