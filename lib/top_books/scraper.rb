@@ -5,7 +5,7 @@ require_relative 'books.rb'
 class Scraper 
   
    def get_site 
-      Nokogiri::HTML(open("https://www.barnesandnoble.com/b/top-books-of-the-month/_/N-2luc"))
+      page = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/top-books-of-the-month/_/N-2luc"))
    end 
    
    def grab_title 
@@ -15,6 +15,7 @@ class Scraper
    
    def create_book_list
      self.grab_title.each do |doc|
+       binding.pry 
        book = Books.new 
        book.title = doc.text 
      end 
