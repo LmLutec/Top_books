@@ -14,11 +14,11 @@ class Scraper
    end 
    
    def create_book_list
-     self.grab_title.each do |doc|
-       binding.pry 
-       book = Books.new 
-       book.title = doc.text 
-     end 
+     self.grab_title.collect do |book| 
+        book = Books.new 
+        book.title = book 
+     end  
+    end 
      
     end 
   end 
