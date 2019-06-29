@@ -1,4 +1,6 @@
 require 'pry'
+require_relative 'scraper.rb'
+
 
 class Books 
   attr_accessor :title   
@@ -10,9 +12,13 @@ class Books
     @@all << self 
   end
   
+  def self.show_title 
+    @title 
+    binding.pry 
+  end 
+  
   def self.all 
     @@all 
-    binding.pry 
   end 
 end 
   # def new_book

@@ -4,11 +4,9 @@ require 'open-uri'
 require_relative 'books.rb'
 
 class Scraper 
-  attr_accessor :title 
-  
   
    def get_site 
-      page = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/top-books-of-the-month/_/N-2luc"))
+     Nokogiri::HTML(open("https://www.barnesandnoble.com/b/top-books-of-the-month/_/N-2luc"))
    end 
    
    def grab_title 
@@ -18,9 +16,10 @@ class Scraper
    
    def create_book_list
      self.grab_title.collect do |book| 
+        book = book.text 
         book = Books.new(book)
      end  
-    end 
+   end 
      
 end 
     # .collect.with_index {|page,index|
