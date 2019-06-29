@@ -2,4 +2,5 @@
 require_relative '../lib/top_books/books.rb'
 require_relative '../lib/top_books/scraper.rb'
 
-Scraper.new.create_book_list 
+#Scraper.new.get_site 
+Books.all
