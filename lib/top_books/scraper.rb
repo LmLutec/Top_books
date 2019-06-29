@@ -15,8 +15,7 @@ class Scraper
    
    def create_book_list
      self.grab_title.collect do |book| 
-        book = Books.new 
-        book.title = book 
+        book = Books.new(book)
      end  
     end 
      
