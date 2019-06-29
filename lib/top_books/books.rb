@@ -14,11 +14,11 @@ class Books
   
   def self.show_title 
     @title 
-    binding.pry 
   end 
   
   def self.all 
     @@all 
+    binding.pry
   end 
 end 
   # def new_book

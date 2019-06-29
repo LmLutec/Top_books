@@ -18,6 +18,8 @@ class Scraper
      self.grab_title.collect do |book| 
         book = book.text 
         book = Books.new(book)
+        binding.pry 
+        Books.all << book  
      end  
    end 
      
