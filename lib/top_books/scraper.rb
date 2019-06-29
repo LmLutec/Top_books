@@ -19,7 +19,7 @@ class Scraper
         book = book.text 
         book = Books.new(book)
         binding.pry 
-        Books.all << book  
+        #Books.all << book  
      end  
    end 
      
