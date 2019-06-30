@@ -4,20 +4,34 @@ require 'open-uri'
 require_relative 'books.rb'
 
 class Scraper 
+  attr_writer :all 
+  
+    @@new_array = [] 
   
    def get_site 
      Nokogiri::HTML(open("https://www.barnesandnoble.com/b/top-books-of-the-month/_/N-2luc"))
    end 
    
    def grab_title 
-     doc = ".product-shelf-title a"
-     self.get_site.css(doc)
+     get_site.css(".product-shelf-title a")
    end 
    
-   def create_book_list
-     self.grab_title.collect do |book| 
-        book = book.text 
-        book = Books.new(book)
+   def ask_input(input)
+      puts "Select a number to learn more about that title" 
+      input = gets.strip 
+   end 
+   
+   def title_details
+     
+   end 
+   
+   def show_book_list
+      self.grab_title.collect.with_index do |book, index|
+       book = book.text 
+        puts "#{index + 1}:#{book}"
+        @@new_array << book 
+        # book = Books.new(book)
+        binding.pry 
      end  
    end 
      

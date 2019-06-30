@@ -2,5 +2,7 @@
 require_relative '../lib/top_books/books.rb'
 require_relative '../lib/top_books/scraper.rb'
 
-#Scraper.new.create_book_list  
-Books.all 
+#path = Scraper.new.create_book_list   
+#Books.new(Scraper.new.create_book_list)
+#Books.start_list 
+Scraper.new.show_book_list

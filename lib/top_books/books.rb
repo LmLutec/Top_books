@@ -16,6 +16,10 @@ class Books
     @@all 
     binding.pry
   end 
+  
+  def self.start_list 
+    Scraper.new.create_book_list
+  end 
 end 
   # def new_book
   #   @scraped.collect do |book|
