@@ -16,9 +16,8 @@ class Scraper
      get_site.css(".product-shelf-title a")
    end 
    
-   def ask_input(input)
+   def ask_input
       input = gets.chomp  
-  
      case input 
         when 1 
        puts "1"
