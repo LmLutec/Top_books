@@ -12,10 +12,6 @@ class Books
     @@all << self 
   end
   
-  def self.show_title 
-    @title 
-  end 
-  
   def self.all 
     @@all 
     binding.pry
