@@ -17,12 +17,14 @@ class Scraper
    end 
    
    def ask_input(input)
-      puts "Select a number to learn more about that title" 
-      input = gets.strip 
-   end 
-   
-   def title_details
-     
+      input = gets.chomp  
+  
+     case input 
+        when 1 
+       puts "1"
+       when 2 
+       puts "2"
+     end 
    end 
    
    def show_book_list
