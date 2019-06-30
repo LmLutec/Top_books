@@ -3,12 +3,13 @@ require_relative 'scraper.rb'
 
 
 class Books 
-  attr_accessor :title   
+  attr_accessor :title, :author    
   
    @@all = [] 
   
-  def initialize(title)
+  def initialize
     @title = title 
+    @author = author 
     @@all << self 
   end
   

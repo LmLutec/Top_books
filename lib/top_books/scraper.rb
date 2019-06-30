@@ -16,23 +16,25 @@ class Scraper
      get_site.css(".product-shelf-title a")
    end 
    
-   def ask_input
-      input = gets.chomp  
-     case input 
-        when 1 
-       puts "1"
-       when 2 
-       puts "2"
-     end 
-   end 
+  # def ask_input(input)
+  #   puts "Input a number"
+  #     input = gets.strip 
+  #   case input 
+  #     when 1 
+  #     grab_title.css(".href")
+  #     when 2 
+  #     puts @@new_array[1]
+  #   end 
+  # end 
    
    def show_book_list
       self.grab_title.collect.with_index do |book, index|
-       book = book.text 
+         book = book.text
         puts "#{index + 1}:#{book}"
-        @@new_array << book 
-        # book = Books.new(book)
+        book = Books.new
+        book.title = book.text  
         binding.pry 
+        #@@new_array << book 
      end  
    end 
      
