@@ -3,11 +3,14 @@ require_relative '../lib/top_books/books.rb'
 require_relative '../lib/top_books/scraper.rb'
 
 
-puts "Here are this week's Best-Selling Books!" 
-puts "Choose a number below to learn more about each title: " 
-
 Scraper.new.combine_info
-return Books.all 
-
+Books.all
+#Books.new.get_input(8)
+#puts "Choose a number below to learn more about each title: "
+#input = gets
+#Scraper.new.combine_info
+#return Books.all 
+#puts "Here are this week's Best-Selling Books!" 
+#return Books.all
    
  
