@@ -3,7 +3,7 @@ require_relative 'scraper.rb'
 
 
 class Books 
-  attr_accessor :title, :author, :release_date, :genre     
+  attr_accessor :title, :author, :release_date, :genre, :description    
   
    @@all = [] 
   
@@ -12,17 +12,16 @@ class Books
     @author = author 
     @release_date = release_date
     @genre = genre 
+    @description = description
     @@all << self 
   end
   
   def self.all 
-    @@all 
-    binding.pry
+    @@all
+     binding.pry 
   end 
   
-  def self.start_list 
-    Scraper.new.create_book_list
-  end 
+  
 end 
   # def new_book
   #   @scraped.collect do |book|

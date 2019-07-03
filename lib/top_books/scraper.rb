@@ -4,17 +4,29 @@ require 'open-uri'
 require_relative 'books.rb'
 
 class Scraper 
-  attr_writer :all 
   
-    @@new_array = [] 
   
-   def get_site 
-     Nokogiri::HTML(open("https://www.barnesandnoble.com/b/top-books-of-the-month/_/N-2luc"))
-   end 
+  def get_site 
+      Nokogiri::HTML(open("https://www.usatoday.com/entertainment/books/best-selling/"))
+  end
    
-   def grab_title 
-     get_site.css(".product-shelf-title a")
-   end 
+  def info_container 
+      self.get_site.css(".front-booklist-info-container")
+  end
+   
+  def combine_info 
+    self.info_container.collect do |container| 
+        book = Books.new 
+        book.title = container.css(".books-front-meta-title").children[0].text   
+        book.author = container.css(".books-front-meta-authorInfo").children[0].text 
+        book.release_date = container.css(".books-front-meta-debut")[0].text.sub("Debuted:", "")
+        book.genre = container.css(".books-front-meta-genre").text.split("Genre:").pop
+        book.description = container.css(".books-front-meta-short").children[0].text 
+        end 
+  end
+end 
+  
+  
    
   # def ask_input(input)
   #   puts "Input a number"
@@ -26,19 +38,7 @@ class Scraper
   #     puts @@new_array[1]
   #   end 
   # end 
-   
-   def show_book_list
-      self.grab_title.collect.with_index do |book, index|
-         book = book.text
-        puts "#{index + 1}:#{book}"
-        book = Books.new
-        book.title = book.text  
-        binding.pry 
-        #@@new_array << book 
-     end  
-   end 
-     
-end 
+
     # .collect.with_index {|page,index|
     #     "#{index + 1}:#{page.text}"}
          

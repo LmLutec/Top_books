@@ -6,4 +6,5 @@ require_relative '../lib/top_books/scraper.rb'
 #Books.new(Scraper.new.create_book_list)
 #Books.start_list 
 #input = 2
-Scraper.new.show_book_list 
+Scraper.new.combine_info   
+Books.all  
