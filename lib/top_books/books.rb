@@ -17,8 +17,9 @@ class Books
   end
   
   def self.all 
-    @@all
-     binding.pry 
+    @@all.each_with_index do |book, index|
+      puts "#{index + 1}: #{book.title}"
+    end 
   end 
   
   

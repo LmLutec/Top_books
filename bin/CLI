@@ -2,9 +2,9 @@
 require_relative '../lib/top_books/books.rb'
 require_relative '../lib/top_books/scraper.rb'
 
-#path = Scraper.new.create_book_list   
-#Books.new(Scraper.new.create_book_list)
-#Books.start_list 
-#input = 2
-Scraper.new.combine_info   
-Books.all  
+puts "Choose a book below by number: " 
+Scraper.new.combine_info
+return Books.all 
+
+   
+ 
