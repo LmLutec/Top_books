@@ -37,7 +37,7 @@ class Books
   end 
   
   def return_to_list 
-    puts "Would you like to browse through more books?"
+    puts "Would you like to browse through more books? Reply 'y' for yes and 'n' for no."
     @browse = gets.strip 
     @browse = @browse.capitalize!
     if @browse == "Y"
