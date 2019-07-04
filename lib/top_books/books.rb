@@ -7,7 +7,7 @@ class Books
   
    @@all = []
   
-  def initialize(title = nil)
+  def initialize
     @title = title 
     @author = author 
     @release_date = release_date
@@ -38,8 +38,11 @@ class Books
   
   def start
     Scraper.new.combine_info
+    puts "Below is a list of USA TODAY's Best-Selling Books: " 
+    puts "\n"
     create_list
-    puts "Choose a number to select book information"
+    puts "\n"
+    puts "Choose a number to view the book's information."
     choice = gets 
     get_input(choice)
   end 
