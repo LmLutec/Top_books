@@ -41,7 +41,7 @@ class Books
     @browse = @browse.capitalize!
     if @browse == "Y"
       start 
-    elsif @browse != "Y" || @browse != "N"
+    elsif @browse == "N"
       puts "Invalid choice. Please try again."
     end 
   end 
