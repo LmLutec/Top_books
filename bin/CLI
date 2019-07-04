@@ -3,9 +3,9 @@ require_relative '../lib/top_books/books.rb'
 require_relative '../lib/top_books/scraper.rb'
 
 
+#Scraper.new.combine_info
+Books.new.start 
 
-Scraper.new.combine_info
-Books.new.create_list 
 #Scraper.new.combine_info
 
 
