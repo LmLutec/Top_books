@@ -1,17 +1,15 @@
-require 'pry'
 require 'nokogiri'
 require 'open-uri'
 require_relative 'books.rb'
 
 class Scraper 
   
-  
   def get_site 
-      Nokogiri::HTML(open("https://www.usatoday.com/entertainment/books/best-selling/"))
+    Nokogiri::HTML(open("https://www.usatoday.com/entertainment/books/best-selling/"))
   end
    
   def info_container 
-      self.get_site.css(".front-booklist-info-container")
+    self.get_site.css(".front-booklist-info-container")
   end
    
   def combine_info 
@@ -24,6 +22,7 @@ class Scraper
         book.description = container.css(".books-front-meta-short").children[0].text 
         end 
   end
+  
 end 
   
   
