@@ -5,7 +5,7 @@ require_relative 'scraper.rb'
 class Books 
   attr_accessor :title, :author, :release_date, :genre, :description    
   
-   @@all = [] 
+   @@all = []
   
   def initialize
     @title = title 
@@ -16,16 +16,29 @@ class Books
     @@all << self 
   end
   
-  def self.all 
+  def create_list 
     @@all.each_with_index do |book, index|
+      if book.title != nil 
       puts "#{index + 1}: #{book.title}"
+      binding.pry 
+      end 
     end 
   end 
   
-  def get_input(selection) 
-     selection = selection.to_i 
-     selection.between?(1,10)
-          puts @@all[selection]
+  def get_input(choice) 
+     choice = choice.to_i 
+     choice.between?(1,10)
+      choice = choice + 1 
+         @@all[choice]
+  end 
+  
+  def start
+    Scraper.new.combine_info
+    create_list
+    puts "Choose a number to select book information"
+    number = gets 
+    get_input(number)
+    #binding.pry 
   end 
   
 end 
