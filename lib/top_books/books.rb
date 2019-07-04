@@ -17,10 +17,11 @@ class Books
   end
   
   def create_list 
-    @@all.shift
     @@all.each_with_index do |book, index|
-      puts "#{index + 1}: #{book.title}"
-    end 
+      if book.title != nil
+        puts "#{index + 1}: #{book.title}"
+          end 
+      end 
   end 
   
   def get_input(choice) 
@@ -32,6 +33,7 @@ class Books
      puts "Genre: #{user_requested.genre}"
      puts "Description: #{user_requested.description.strip}."
      puts "Debuted: #{user_requested.release_date}"
+     puts "\n"
      return_to_list
   end 
   
@@ -41,14 +43,15 @@ class Books
     @browse = @browse.capitalize!
     if @browse == "Y"
       start 
-    elsif @browse == "N"
+    elsif @browse != "N" && @browse != "Y"
       puts "Invalid choice. Please try again."
+      puts "\n"
+      return_to_list
     end 
   end 
   
   def start
-    Scraper.new.combine_info
-    puts "Below is a list of USA TODAY's Best-Selling Books: " 
+    puts "Below is a list of the current Best-Selling Books according to USA TODAY: " 
     puts "\n"
     create_list
     puts "\n"
