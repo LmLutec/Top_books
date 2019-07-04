@@ -4,7 +4,7 @@ require_relative '../lib/top_books/scraper.rb'
 
 
 #Scraper.new.combine_info
-Books.new.start 
+Books.new.start  
 
 #Scraper.new.combine_info
 
