@@ -32,9 +32,19 @@ class Books
      puts "Genre: #{user_requested.genre}"
      puts "Description: #{user_requested.description.strip}."
      puts "Debuted: #{user_requested.release_date}"
+     return_to_list
   end 
   
-  
+  def return_to_list 
+    puts "Would you like to browse through more books?"
+    @browse = gets.strip 
+    @browse = @browse.capitalize!
+    if @browse == "Y"
+      start 
+    elsif @browse != "Y" || @browse != "N"
+      puts "Invalid choice. Please try again."
+    end 
+  end 
   
   def start
     Scraper.new.combine_info
