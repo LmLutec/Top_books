@@ -1,4 +1,4 @@
-require_relative 'scraper.rb'
+#require_relative 'scraper.rb'
 
 
 class Books 
