@@ -3,7 +3,6 @@ require_relative 'scraper.rb'
 
 class Books 
   attr_accessor :title, :author, :release_date, :genre, :description
-  attr_reader :all 
   
    @@all = []
   
