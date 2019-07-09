@@ -1,4 +1,4 @@
-class cli_interface   
+class Cli_interface   
 
   def get_input(choice) 
      choice = choice.to_i 

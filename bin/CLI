@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require_relative '../lib/top_books/scraper.rb'
+require_relative './Top_books/top_books.rb'
 
 cli_interface.start 
 
