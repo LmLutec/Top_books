@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-require_relative './Top_books/top_books.rb'
+require_relative '../lib/top_books.rb'
 
-cli_interface.start 
+Cli_interface.new.start 
 
  
