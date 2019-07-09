@@ -1,4 +1,3 @@
-
 class Scraper 
   
   def get_site 
