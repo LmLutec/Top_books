@@ -12,7 +12,7 @@ class Cli_interface
      puts "\n"
      return_to_list
     else 
-      puts "Invalid Input, try again"
+      puts "INVALID INPUT, TRY AGAIN"
       puts "\n"
       start 
    end 
@@ -24,7 +24,7 @@ class Cli_interface
     @browse = @browse.capitalize!
     if @browse == "Y"
       start 
-    elsif @browse == "N" 
+    elsif @browse == "N" || @browse == "n" 
         puts "Thanks for stopping by!"
     else 
       puts "Invalid choice. Please try again."
