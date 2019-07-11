@@ -1,8 +1,8 @@
 class Cli_interface   
 
   def get_input(choice) 
-     choice = choice.to_i 
-     choice.between?(1,10)
+    choice = choice.to_i 
+     if choice.between?(1,10)
      user_requested = Books.all[choice - 1]
      puts "Author: #{user_requested.author}"
      puts "Title: #{user_requested.title}"
@@ -11,6 +11,9 @@ class Cli_interface
      puts "Debuted: #{user_requested.release_date}"
      puts "\n"
      return_to_list
+    else 
+      puts "Invalid Input"
+   end 
   end 
   
   def return_to_list 
@@ -34,7 +37,7 @@ class Cli_interface
     Books.create_list
     puts "\n"
     puts "Choose a number to view the book's information."
-    choice = gets 
+    choice = gets
     puts "\n"
     get_input(choice)
   end 
