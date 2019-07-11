@@ -18,9 +18,10 @@ class Cli_interface
     @browse = gets.strip 
     @browse = @browse.capitalize!
     if @browse == "Y"
-      Scraper.new.create_list
       start 
-    elsif @browse != "N" && @browse != "Y"
+    elsif @browse == "N" 
+        puts "Thanks for stopping by!"
+    else 
       puts "Invalid choice. Please try again."
       puts "\n"
       return_to_list
@@ -30,10 +31,11 @@ class Cli_interface
   def start
     puts "Below is a list of the current Best-Selling Books according to USA TODAY: " 
     puts "\n"
-    Books.new.create_list
+    Books.create_list
     puts "\n"
     puts "Choose a number to view the book's information."
     choice = gets 
+    puts "\n"
     get_input(choice)
   end 
   

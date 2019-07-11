@@ -12,7 +12,8 @@ class Books
     @@all << self 
   end
   
-  def create_list 
+  def self.create_list
+    Scraper.new.combine_info if @@all.empty? 
     @@all.each_with_index do |book, index|
       if book.title != nil
         puts "#{index + 1}: #{book.title}"
