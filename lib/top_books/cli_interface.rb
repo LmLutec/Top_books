@@ -12,7 +12,9 @@ class Cli_interface
      puts "\n"
      return_to_list
     else 
-      puts "Invalid Input"
+      puts "Invalid Input, try again"
+      puts "\n"
+      start 
    end 
   end 
   
