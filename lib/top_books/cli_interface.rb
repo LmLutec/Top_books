@@ -21,10 +21,10 @@ class Cli_interface
   def return_to_list 
     puts "Would you like to browse through more books? Reply 'y' for yes and 'n' for no."
     @browse = gets.strip 
-    @browse = @browse.capitalize!
+    @browse = @browse.capitalize
     if @browse == "Y"
       start 
-    elsif @browse == "N" || @browse == "n" 
+    elsif @browse == "N" 
         puts "Thanks for stopping by!"
     else 
       puts "Invalid choice. Please try again."
